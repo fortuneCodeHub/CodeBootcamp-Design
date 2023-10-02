@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Bootcamp</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Icon Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <!-- svg symbols -->
+    <svg style="display: none;">
+        <symbol id="code-slash" viewbox="0 0 16 16">
+            <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+        </symbol>
+        <symbol id="stack" viewbox="0 0 16 16">
+            <path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"/>
+            <path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"/>
+
+        </symbol>
+        <symbol id="mortarboard-fill" viewbox="0 0 16 16">
+            <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z"/>
+            <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z"/>
+        </symbol>
+        <symbol id="wordpress" viewbox="0 0 16 16">
+            <path d="M12.633 7.653c0-.848-.305-1.435-.566-1.892l-.08-.13c-.317-.51-.594-.958-.594-1.48 0-.63.478-1.218 1.152-1.218.02 0 .039.002.058.003l.031.003A6.838 6.838 0 0 0 8 1.137 6.855 6.855 0 0 0 2.266 4.23c.16.005.313.009.442.009.717 0 1.828-.087 1.828-.087.37-.022.414.521.044.565 0 0-.371.044-.785.065l2.5 7.434 1.5-4.506-1.07-2.929c-.369-.022-.719-.065-.719-.065-.37-.022-.326-.588.043-.566 0 0 1.134.087 1.808.087.718 0 1.83-.087 1.83-.087.37-.022.413.522.043.566 0 0-.372.043-.785.065l2.48 7.377.684-2.287.054-.173c.27-.86.469-1.495.469-2.046zM1.137 8a6.864 6.864 0 0 0 3.868 6.176L1.73 5.206A6.837 6.837 0 0 0 1.137 8z"/>
+            <path d="M6.061 14.583 8.121 8.6l2.109 5.78c.014.033.03.064.049.094a6.854 6.854 0 0 1-4.218.109zm7.96-9.876c.03.219.047.453.047.706 0 .696-.13 1.479-.522 2.458l-2.096 6.06a6.86 6.86 0 0 0 2.572-9.224z"/>
+            <path fill-rule="evenodd" d="M0 8c0-4.411 3.589-8 8-8 4.41 0 8 3.589 8 8s-3.59 8-8 8c-4.411 0-8-3.589-8-8zm.367 0c0 4.209 3.424 7.633 7.633 7.633 4.208 0 7.632-3.424 7.632-7.633C15.632 3.79 12.208.367 8 .367 3.79.367.367 3.79.367 8z"/>
+        </symbol>
+        <symbol id="cloud-upload-fill" viewbox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z"/>
+        </symbol>
+        <symbol id="cash-coin" viewbox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"/>
+            <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1h-.003zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195l.054.012z"/>
+            <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z"/>
+            <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/>
+        </symbol>
+        <symbol id="facebook" viewbox="0 0 16 16">
+            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+        </symbol>
+        <symbol id="twitter" viewbox="0 0 16 16">
+            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+        </symbol>
+        <symbol id="linkedin" viewbox="0 0 16 16">
+            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+        </symbol>
+        <symbol id="instagram" viewbox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+        </symbol>
+        <symbol id="youtube" viewbox="0 0 16 16">
+            <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+        </symbol>
+        <symbol id="geo-alt-fill" viewbox="0 0 16 16">
+            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+        </symbol>
+        <symbol id="telephone-fill" viewbox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+        </symbol>
+        <symbol id="envelope" viewbox="0 0 16 16">
+            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+        </symbol>
+    </svg>
+    <!-- svg symbols end -->
+
+
+    <!-- Navbar Begins -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-2 p-lg-0 sticky-top">
+        <div class="container">
+            <a href="" class="navbar-brand">Code <span style="color: rgb(197, 6, 133);">Bootcamp</span></a>
+            <button class="navbar-toggler" type="button" data-bs-target="#navmenu" data-bs-toggle="collapse" id="button">
+                <img src="bootstrap-icons-1.9.1/list.svg" alt="" width="25" height="25">
+            </button>
+            <div class="navbar-collapse collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link" id="nav-link">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link" id="nav-link">
+                            Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#aboutus" class="nav-link" id="nav-link">
+                            About us 
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#testimonial" class="nav-link" id="nav-link">
+                            Testimonials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link" id="nav-link">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar Ends -->
+
+
+    <!-- Hero section Begins -->
+    <section class="hero-bg" style="background-image: url(image/hero-bg.png);" id="home">
+        <div class="container">
+            <div class="hero-text">
+                <h1 class="hero-header text-uppercase">Best Digital Tutoring Agency For Web Designers & More</h1>
+                <p class="hero-para lead">
+                    Subscribe Easy Tutorials Youtube Channel to watch more videos on website development, digital marketing, Wordpress and Graphic design.
+                </p>
+                <div class="hero-cta">
+                    <a href="http://" target="_blank" rel="noopener noreferrer" class="align-items-center hero-link">
+                        <!-- <i class="bi bi-play-circle"></i> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle me-2" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+                        </svg>
+                        <b>Go to Youtube</b>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero section Ends -->
+
+
+    <!-- Services Section Begins  -->
+    <section class="services-bg bg-light" id="services">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Card item -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card text-md-start text-center shadow">
+                        <div class="card-body">
+                            <div class="text-md-start text-center card-img">
+                                <svg width="50" height="50" class="bi p-1">
+                                    <use xlink:href="#code-slash"/>
+                                </svg>
+                                <!-- <i class="bi bi-code-slash"></i> -->
+                            </div>
+                            <h3 class="card-title">
+                                Learn Web Design & Development, Get
+                                Source Codes For Free
+                            </h3>
+                            <p class="card-text">
+                                Get source codes for some of our websites for free,Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero excepturi a provident quo architecto earum doloribus at magni itaque aspernatur.
+                            </p>
+                            <div class="card-link">
+                                <a href="http://" class="btn btn-outline-info" target="_blank" rel="noopener noreferrer">
+                                    See Now &ShortRightArrow;
+                                </a>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+                <!-- Card item -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card text-md-start text-center shadow">
+                        <div class="card-body">
+                            <div class="text-md-start text-center card-img">
+                                <svg width="50" height="50" class="bi p-1">
+                                    <use xlink:href="#mortarboard-fill"/>
+                                </svg>
+                                <!-- <i class="bi bi-mortarboard-fill"></i> -->
+                            </div>
+                            <h3 class="card-title">
+                                Learn Graphic Design from Beginner to Pro
+                            </h3>
+                            <p class="card-text">
+                                Get source codes for some of our websites for free,Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero excepturi a provident quo architecto earum doloribus at magni itaque aspernatur.
+                            </p>
+                            <div class="card-link">
+                                <a href="http://" class="btn btn-outline-info" target="_blank" rel="noopener noreferrer">
+                                    See Now &ShortRightArrow;
+                                </a>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+                <!-- Card item -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card text-md-start text-center shadow">
+                        <div class="card-body">
+                            <div class="text-md-start text-center card-img">
+                                <svg width="50" height="50" class="bi p-1">
+                                    <use xlink:href="#stack"/>
+                                </svg>
+                                <!-- <i class="bi bi-stack"></i> -->
+                            </div>
+                            <h3 class="card-title">
+                                See and Get Site Sample Templates for Free
+                            </h3>
+                            <p class="card-text">
+                                Get source codes for some of our websites for free,Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero excepturi a provident quo architecto earum doloribus at magni itaque aspernatur.
+                            </p>
+                            <div class="card-link">
+                                <a href="http://" class="btn btn-outline-info" target="_blank" rel="noopener noreferrer">
+                                    See Now &ShortRightArrow;
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card item -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card text-md-start text-center shadow">
+                        <div class="card-body">
+                            <div class="text-md-start text-center card-img">
+                                <svg width="50" height="50" class="bi p-1">
+                                    <use xlink:href="#cash-coin"/>
+                                </svg>
+                                <!-- <i class="bi bi-cash-coin"></i> -->
+                            </div>
+                            <h3 class="card-title">
+                                Learn Digital & Social Marketing For Free
+                            </h3>
+                            <p class="card-text">
+                                Get source codes for some of our websites for free,Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero excepturi a provident quo architecto earum doloribus at magni itaque aspernatur.
+                            </p>
+                            <div class="card-link">
+                                <a href="http://" class="btn btn-outline-info" target="_blank" rel="noopener noreferrer">
+                                    See Now &ShortRightArrow;
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Item -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card text-md-start text-center shadow">
+                        <div class="card-body">
+                            <div class="text-md-start text-center card-img">
+                                <svg width="50" height="50" class="bi p-1">
+                                    <use xlink:href="#wordpress"/>
+                                </svg>
+                                <!-- <i class="bi bi-wordpress"></i> -->
+                            </div>
+                            <h3 class="card-title">
+                                Learn Wordpress From Beginner To Pro With Provided Samples
+                            </h3>
+                            <p class="card-text">
+                                Get source codes for some of our websites for free,Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero excepturi a provident quo architecto earum doloribus at magni itaque aspernatur.
+                            </p>
+                            <div class="card-link">
+                                <a href="http://" class="btn btn-outline-info" target="_blank" rel="noopener noreferrer">
+                                    See Now &ShortRightArrow;
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Item -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card text-md-start text-center shadow">
+                        <div class="card-body">
+                            <div class="text-md-start text-center card-img">
+                                <svg width="50" height="50" class="bi p-1">
+                                    <use xlink:href="#cloud-upload-fill"/>
+                                </svg>
+                                <!-- <i class="bi bi-cloud-upload-fill"></i> -->
+                            </div>
+                            <h3 class="card-title">
+                                Tutorial on Web Hosting and Terminologies Involved
+                            </h3>
+                            <p class="card-text">
+                                Get source codes for some of our websites for free,Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero excepturi a provident quo architecto earum doloribus at magni itaque aspernatur.
+                            </p>
+                            <div class="card-link">
+                                <a href="http://" class="btn btn-outline-info" target="_blank" rel="noopener noreferrer">
+                                    See Now &ShortRightArrow;
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="more-services-button text-center">
+                <a href="http://" class="btn text-capitalize" target="_blank" rel="noopener noreferrer">All Services &ShortRightArrow;</a>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section Ends -->
+
+
+    <!-- About us section begins -->
+    <section class="aboutus-bg bg-white p-md-5 p-2" id="aboutus">
+        <div class="container">
+            <!-- About Us Header -->
+            <div class="aboutus-header-bg text-center">
+                <h1 class="aboutus-header">WHY CHOOSE US ?</h1>
+            </div>
+            <div class="row g-4 align-items-center mt-5 p-0 p-lg-5">
+                <!-- About us text -->
+                <div class="aboutus-text col-lg-6">
+                    <div class="pb-2">
+                        <h2 class="display-5 fw-bold">Why we're different ?</h2>
+                    </div>
+                    <ul class="mb-2 mb-lg-0">
+                        <li>We devote all our time and funds to all our students</li>
+                        <li>We take every topic, subject matter seriously</li>
+                        <li>We have good reputation on all our tutoring platforms</li>
+                        <li>We give follow up projets to all our students after every class</li>
+                        <li>We try our best in making sure that our students achieve their highest</li>
+                        <li>We are tested and trusted in all the fields we give tutoring on</li>
+                    </ul>
+                </div>
+                <!-- About us Image -->
+                <div class="aboutus-img col-lg-6 text-center">
+                    <img src="image/bootstrap-docs.png" class="img-fluid" alt="" style="height: 400px;width: 100%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Second SVG Image  -->
+    <div class="custom-shape-divider-bottom-1696222519">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    <section class="aboutus-bg bg-white text-white" style="background: linear-gradient(to bottom, rgb(202, 6, 137) ,rgb(250, 68, 189));">
+        <div class="container my-5">
+            <div class="row g-4 p-4 pb-0 pt-lg-5 align-items-center aboutus-hero-section">
+                <div class="col-lg-4 p-0 shadow-lg overflow-hidden offset-lg-1">
+                    <img src="image/bootstrap-docs.png" class="img-fluid" alt="" style="height: 400px;width: 100%;">
+                      <!-- <img class="rounded-lg-3" width="720" src="image/bootstrap-docs.png" alt=""> -->
+                </div>
+                <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                    <h1 class="fw-bold">Border hero with cropped image and shadows</h1>
+                    <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world's most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                    <div class="mb-4 mb-lg-3">
+                        <button class="btn btn-outline-info" id="aboutus-hero-button">See More &ShortRightArrow;</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </section> 
+    <!-- About us section ends -->
+
+
+    
+    <!-- Testimonial section Begins -->
+    <section class="testimonial-bg text-white" id="testimonial">
+        <div class="container">
+            <div class="testimonial-header-bg text-center">
+                <h1 class="testimonial-header">WHAT STUDENTS SAY ABOUT US ?</h1>
+            </div>
+            <div class="row g-4 mt-5">
+                <div class="col-md-6">
+                    <div class="card-bg shadow">
+                        <div class="card-body d-flex flex-column">
+                            <p class="card-text lead pb-3">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi itaque cum soluta perferendis, ullam natus necessitatibus dolore nisi architecto obcaecati illum, modi aperiam quos sapiente.
+                            </p>
+                            <div class="d-flex align-items-center">
+                                <img src="image/profile (2).JPG" alt="Client Image" height="150" width="100" class="me-2 img-fluid">
+                                <div class="card-head">
+                                    <h4>Drake Jonah</h4>
+                                    <small class="text-uppercase">ceo denmark inv</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-bg shadow">
+                        <div class="card-body d-flex flex-column">
+                            <p class="card-text lead pb-3">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi itaque cum soluta perferendis, ullam natus necessitatibus dolore nisi architecto obcaecati illum, modi aperiam quos sapiente.
+                            </p>
+                            <div class="d-flex align-items-center">
+                                <img src="image/profile (1).JPG" alt="Client Image" height="150" width="100" class="me-2 img-fluid">
+                                <div class="card-head">
+                                    <h4>Jesse Jones</h4>
+                                    <small class="text-uppercase">ceo denmark inv</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="more-testimonial-button text-center mt-5">
+                <a href="http://" class="btn text-capitalize" target="_blank" rel="noopener noreferrer">More Student Testimonials &ShortRightArrow;</a>
+            </div>
+            <div style="padding-bottom: 100px;"></div>
+        </div>
+    </section>
+    <!-- First SVG Image -->
+    <div class="custom-shape-divider-top-1696221972">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    <!-- Testimonial section ends -->
+
+
+    <!-- Contact Begins -->
+    <section class="contact-bg p-5 bg-white" id="contact">
+        <div class="container text-center">
+            <div class="text-center mb-5 contact-header-bg">
+                <h4 class="lh-2 display-6 fw-bold">Contact Us Through the Following Social Media Platforms</h4>
+            </div>
+            <div class="d-flex flex-wrap align-items-center justify-content-center contact-link-bg">
+                <a href="http://" target="_blank" class="mx-3">
+                    <svg class="bi" height="30" width="30"><use xlink:href="#facebook" /></svg>
+                    <!-- <i class="bi bi-facebook"></i> -->
+                </a>
+                <a href="http://" target="_blank" class="mx-3">
+                    <svg class="bi" height="30" width="30"><use xlink:href="#twitter" /></svg>
+                    <!-- <i class="bi bi-twitter"></i> -->
+                </a>
+                <a href="http://" target="_blank" class="mx-3">
+                    <svg class="bi" height="30" width="30"><use xlink:href="#instagram" /></svg>
+                    <!-- <i class="bi bi-instagram"></i> -->
+                </a>
+                <a href="http://" target="_blank" class="mx-3">
+                    <svg class="bi" height="30" width="30"><use xlink:href="#linkedin" /></svg>
+                    <!-- <i class="bi bi-linkedin"></i> -->
+                </a>
+                <a href="http://" target="_blank" class="mx-3">
+                    <svg class="bi" height="30" width="30"><use xlink:href="#youtube" /></svg>
+                    <!-- <i class="bi bi-youtube"></i> -->
+                </a>
+            </div>
+        </div>
+        <!-- <img src="image/" alt="" style="width: 100%;"> -->
+    </section>
+    <!-- Contact ends -->
+    
+    <!--  Third SVG Image  -->
+    <div class="custom-shape-divider-footer-1696222519">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    <!-- Footer Begins -->
+    <footer class="footer-bg" id="footer">
+        <div style="padding-bottom: 150px;"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <a href="" class="footer-brand text-start h2 fw-bold">Code Bootcamp</span></a>
+                    <p class="lh-4 text-white pt-3 lead">
+                        Subscribe to our agency in order to get in touch with us to know the latest development in the digital skills industry, subscribe now to our newsletter.
+                        Monthly digest of whats new and exciting from us.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-white">
+                    <h4 class="lh-3 fw-bold" style="font-size: 25px;padding-bottom: 20px;">Contact Us</h4>
+                    <div class="py-1 px-2">
+                        <ul class="list-unstyled">
+                            <li class="d-flex align-items-center my-2">
+                                <a href="http://" target="_blank" rel="noopener noreferrer" class="text-white me-2">
+                                    <svg class="bi" height="30" width="30"><use xlink:href="#geo-alt-fill" /></svg>
+                                    <!-- <i class="bi bi-geo-alt-fill"></i> -->
+                                </a>
+                                <span class="lead">No 10 Aiyefo Str, off Victoria Island Ave</span>
+                            </li>
+                            <li class="d-flex align-items-center my-2">
+                                <a href="http://" target="_blank" rel="noopener noreferrer" class="text-white me-2">
+                                    <svg class="bi" height="30" width="30"><use xlink:href="#telephone-fill" /></svg>
+                                    <!-- <i class="bi bi-telephone-fill"></i> -->
+                                </a>
+                                <span class="lead">+234 916 126 1344</span>
+                            </li>
+                            <li class="d-flex align-items-center my-2">
+                                <a href="http://" target="_blank" rel="noopener noreferrer" class="text-white me-2">
+                                    <svg class="bi" height="30" width="30"><use xlink:href="#envelope" /></svg>
+                                    <!-- <i class="bi bi-envelope"></i> -->
+                                </a>
+                                <span class="lead">fortunenwohiri@gmail.com<br>franklynnwohiri@gmail.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                <form>
+                    <h4 class="fw-bold lh-3 text-white" style="font-size: 25px;padding-bottom: 40px;">Subscribe to our newsletter</h4>
+                    <div class="input-group gap-2">
+                        <div class="form-floating">
+                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                            <label for="newsletter1" id="newsletter1-label">Email address</label>
+                        </div>
+                        <button class="btn btn-primary" type="button" id="btn-border">Subscribe</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        
+            <div class="d-sm-flex justify-content-between py-4 my-4 border-top text-white">
+                <p class="lh-2" style="font-size: 20px;">&copy; 2021 Company, Inc. All rights reserved.</p>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-white" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+                    <li class="ms-3"><a class="text-white" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                    <li class="ms-3"><a class="text-white" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+<!-- Footer Ends -->
+
+    <!-- JS Links -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
